@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>경주 단체/독채 풀빌라 비교</title>
+<title>아랑 추계 여행</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -135,14 +135,58 @@ body{font-family:'Pretendard',system-ui,sans-serif;background:#dfeef2;color:#233
 }
 @media(max-width:390px){.mobile-summary{grid-template-columns:1fr}.mfeatures{grid-template-columns:1fr}.mprice b{font-size:18px}.mhero img{height:138px}}
 
+
+/* Arang trip landing + switchable views */
+body{min-height:100vh;align-items:flex-start}
+body.landing{padding:0;display:block;background:#101821;color:#fff;overflow-x:hidden}
+body.landing .scaler{display:none}
+.landingHero{position:relative;min-height:100vh;overflow:hidden;background:#101821;display:flex;align-items:center;justify-content:center;padding:32px 18px}
+.heroBg{position:absolute;inset:0;background:linear-gradient(115deg,rgba(8,14,22,.92),rgba(8,14,22,.48) 45%,rgba(8,14,22,.72)),url('assets/trip-sunset.jpg') center/cover no-repeat;filter:saturate(1.05)}
+.heroShade{position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(0deg,#101821,transparent)}
+.heroInner{position:relative;z-index:1;width:min(1180px,100%);display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}
+.eyebrow{font-size:13px;font-weight:900;letter-spacing:.12em;color:#ffd18a;margin-bottom:12px;text-transform:uppercase}
+.heroCopy h1{font-size:clamp(46px,8vw,96px);line-height:.98;letter-spacing:-.07em;margin:0 0 18px;text-shadow:0 8px 28px rgba(0,0,0,.42)}
+.heroLead{font-size:clamp(16px,2vw,22px);line-height:1.55;color:#edf6f8;max-width:560px;font-weight:650;margin-bottom:24px}
+.heroActions{display:flex;gap:12px;flex-wrap:wrap}.heroActions button,.viewbar button{font-family:inherit;cursor:pointer;border:0}
+.primaryAction,.secondaryAction{border-radius:999px;padding:15px 22px;font-size:16px;font-weight:900;box-shadow:0 16px 34px -18px rgba(0,0,0,.65)}
+.primaryAction{background:#25a9d2;color:#fff}.secondaryAction{background:rgba(255,255,255,.92);color:#15313d}.heroHint{margin-top:13px;color:#bed6de;font-size:13px;font-weight:700}
+.photoStack{position:relative;height:min(68vw,620px);min-height:420px}.photoStack img{position:absolute;object-fit:cover;border:5px solid rgba(255,255,255,.88);border-radius:24px;box-shadow:0 26px 70px -30px rgba(0,0,0,.85);background:#ddd}.photoStack .p1{width:72%;height:52%;right:0;top:0}.photoStack .p2{width:42%;height:30%;left:4%;top:9%;transform:rotate(-6deg)}.photoStack .p3{width:43%;height:48%;right:6%;bottom:1%;transform:rotate(4deg)}.photoStack .p4{width:58%;height:38%;left:0;bottom:10%;transform:rotate(-2deg)}
+.viewbar{position:sticky;top:10px;z-index:10;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 auto 10px;padding:8px;width:fit-content;max-width:calc(100vw - 20px);background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border:1px solid #cfe3e9;border-radius:999px;box-shadow:0 10px 30px -20px rgba(0,0,0,.35)}
+.viewbar button{border-radius:999px;padding:9px 13px;font-size:12px;font-weight:900;background:#eef6f8;color:#245468}.viewbar .modeBtn.active,.viewbar button:hover{background:#1f8fb5;color:#fff}.zoomTools{display:flex;align-items:center;gap:5px;padding-left:5px;border-left:1px solid #d6e7ed}.zoomLabel{font-size:12px;font-weight:900;color:#245468;min-width:42px;text-align:center}body.mode-cards,body.mode-compare{background:#dfeef2;color:#233}body.mode-cards .landingHero,body.mode-compare .landingHero{display:none}body.mode-cards .scaler,body.mode-compare .scaler{display:block}body.mode-compare .scaler{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:18px}body.mode-compare .board{zoom:var(--compareZoom,1)}body.mode-compare .grid{display:grid!important}body.mode-compare .mobile-summary,body.mode-compare .mobile-cards{display:none!important}body.mode-cards .grid{display:none!important}body.mode-cards .mobile-summary{display:grid!important;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}body.mode-cards .mobile-cards{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}body.mode-cards .mcard{height:100%}
+@media(max-width:760px){body.landing{padding:0}.landingHero{padding:26px 16px;align-items:flex-start}.heroInner{grid-template-columns:1fr;gap:18px}.photoStack{height:430px;min-height:430px;order:-1}.photoStack img{border-width:3px;border-radius:18px}.heroCopy h1{font-size:54px}.heroLead{font-size:15px}.primaryAction,.secondaryAction{width:100%;padding:14px 18px}.heroActions{gap:9px}body.mode-compare{padding:10px;display:block}body.mode-compare .scaler{max-width:none;overflow-x:auto}body.mode-compare .board{width:1340px;border-radius:20px;padding:22px 24px 20px}body.mode-compare .panels{grid-template-columns:1.15fr 1.35fr 1fr .9fr}body.mode-cards .mobile-summary{grid-template-columns:1fr 1fr!important}body.mode-cards .mobile-cards{display:flex!important;flex-direction:column}.viewbar{border-radius:18px}.zoomTools{width:100%;justify-content:center;border-left:0;border-top:1px solid #d6e7ed;padding:6px 0 0}}
+@media(max-width:390px){body.mode-cards .mobile-summary{grid-template-columns:1fr!important}}
+
 </style></head>
-<body>
+<body class="landing">
+<section class="landingHero" aria-label="아랑 추계 여행 랜딩">
+  <div class="heroBg" aria-hidden="true"></div>
+  <div class="heroShade"></div>
+  <div class="heroInner">
+    <div class="heroCopy">
+      <p class="eyebrow">ARANG AUTUMN TRIP · Pension Compare</p>
+      <h1>아랑 추계 여행</h1>
+      <p class="heroLead">함께한 사진을 배경으로, 경주 단체 숙소 후보를 보기 편하게 비교합니다.</p>
+      <div class="heroActions">
+        <button type="button" class="primaryAction compareBtn">한눈에 비교하기</button>
+        <button type="button" class="secondaryAction cardsBtn">모바일 최적화 카드</button>
+      </div>
+      <p class="heroHint">한눈에 비교하기는 좌우 스크롤과 확대/축소를 지원합니다.</p>
+    </div>
+    <div class="photoStack" aria-label="여행 사진 모음">
+      <img class="p1" src="assets/trip-sunset.jpg" alt="석양 배경 단체 사진">
+      <img class="p2" src="assets/trip-rafting.jpg" alt="래프팅 단체 사진">
+      <img class="p3" src="assets/trip-selfie.jpg" alt="여행 셀피 사진">
+      <img class="p4" src="assets/trip-night.jpg" alt="밤 모임 단체 사진">
+    </div>
+  </div>
+</section>
+
 <div class="scaler">
-  <p class="mhint">모바일 최적화 카드 보기 · 사진을 누르면 예약 페이지로 이동</p>
+  <div class="viewbar"><button type="button" class="backLanding">← 랜딩</button><button type="button" class="modeBtn compareBtn">한눈에 비교하기</button><button type="button" class="modeBtn cardsBtn">모바일 최적화 카드</button><div class="zoomTools"><button type="button" class="zoomOut">−</button><span class="zoomLabel">100%</span><button type="button" class="zoomIn">＋</button></div></div><p class="mhint">모바일 최적화 카드 보기 · 사진을 누르면 예약 페이지로 이동</p>
   <div class="board">
 
     <div class="top">
-      <div class="title">경주 단체/독채 <span class="b">풀빌라</span> 비교 한눈에 보기</div>
+      <div class="title">아랑 추계 여행 <span class="b">숙소</span> 비교</div>
       <span class="krbadge">15인 기준</span>
       <span class="krsub">성인 13명 + 1살 1명 + 0살 1명</span>
       <div class="leg"><span>🏊 수영장</span><span>🎠 놀이시설</span><span>♨️ 자쿠지/스파</span><span>🍖 바비큐</span></div>
@@ -338,6 +382,38 @@ body{font-family:'Pretendard',system-ui,sans-serif;background:#dfeef2;color:#233
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',buildMobile); else buildMobile();
 })();
+
+(function(){
+  var zoom=1;
+  function ensureMobileBuilt(){
+    if(!document.querySelector('.mobile-cards')){
+      var ev=document.createEvent('Event'); ev.initEvent('DOMContentLoaded', true, true); document.dispatchEvent(ev);
+    }
+  }
+  function setMode(mode){
+    ensureMobileBuilt();
+    document.body.classList.remove('landing','mode-compare','mode-cards');
+    document.body.classList.add(mode==='compare'?'mode-compare':'mode-cards');
+    document.querySelectorAll('.compareBtn').forEach(function(b){b.classList.toggle('active',mode==='compare')});
+    document.querySelectorAll('.cardsBtn').forEach(function(b){b.classList.toggle('active',mode==='cards')});
+    if(mode==='compare') setZoom(zoom);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function setZoom(v){
+    zoom=Math.max(.65,Math.min(1.35,Math.round(v*100)/100));
+    document.documentElement.style.setProperty('--compareZoom', zoom);
+    document.querySelectorAll('.zoomLabel').forEach(function(el){el.textContent=Math.round(zoom*100)+'%'});
+  }
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.compareBtn')) setMode('compare');
+    if(e.target.closest('.cardsBtn')) setMode('cards');
+    if(e.target.closest('.backLanding')){document.body.classList.remove('mode-compare','mode-cards');document.body.classList.add('landing');window.scrollTo({top:0,behavior:'smooth'});}
+    if(e.target.closest('.zoomIn')) setZoom(zoom+.1);
+    if(e.target.closest('.zoomOut')) setZoom(zoom-.1);
+  });
+  setZoom(1);
+})();
+
 </script>
 
 </body></html>
