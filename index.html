@@ -3,8 +3,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>아랑 추계 여행</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQG4UX8xH7NDBb6U0O5y2EBCGII8QfM=" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Pretendard',system-ui,sans-serif;background:#dfeef2;color:#233;padding:16px;display:flex;justify-content:center}
@@ -35,7 +33,7 @@ body{font-family:'Pretendard',system-ui,sans-serif;background:#dfeef2;color:#233
 .go{position:absolute;left:50%;bottom:7px;transform:translateX(-50%);background:rgba(31,143,181,.96);color:#fff;font-size:11px;font-weight:900;padding:7px 12px;border-radius:999px;opacity:1;transition:transform .15s,background .15s;box-shadow:0 8px 18px -10px rgba(0,0,0,.55);white-space:nowrap}
 .hlink:hover .go{transform:translateX(-50%) translateY(-2px);background:#176f8d}
 .blogBtn{display:inline-flex;align-items:center;justify-content:center;gap:4px;text-decoration:none;background:#03c75a;color:#fff!important;border-radius:999px;padding:8px 11px;font-size:11.5px;font-weight:900;box-shadow:0 8px 18px -12px rgba(0,0,0,.35);white-space:nowrap}
-.blogBtn:hover{filter:brightness(.95);transform:translateY(-1px)}
+.blogBtn:hover{filter:brightness(.95);transform:translateY(-1px)}.mapBtn{display:inline-flex;align-items:center;justify-content:center;padding:8px 12px;border-radius:999px;background:#1f8fb5;color:#fff!important;text-decoration:none;font-size:12px;font-weight:900;box-shadow:0 8px 18px -12px rgba(31,143,181,.65);white-space:nowrap}.mapBtn:hover{background:#176f8d;transform:translateY(-1px)}
 .hdr-first{background:#1f8fb5;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
 
 .rlabel{background:#f2f8fa;border-top:1px solid #e4eef1;padding:11px 10px;font-size:12.5px;font-weight:700;color:#1f5568;display:flex;flex-direction:column;justify-content:center}
@@ -139,21 +137,6 @@ body{font-family:'Pretendard',system-ui,sans-serif;background:#dfeef2;color:#233
 }
 @media(max-width:390px){.mobile-summary{grid-template-columns:1fr}.mfeatures{grid-template-columns:1fr}.mprice b{font-size:18px}.mhero img{height:138px}}
 
-/* location map */
-.locationPanel{margin-top:16px;background:#fff;border:1px solid #d3e4ea;border-radius:18px;padding:16px;box-shadow:0 8px 28px -22px rgba(0,50,70,.35)}
-.locationHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.locationTitle{font-size:18px;font-weight:900;color:#1f8fb5;letter-spacing:-.03em}
-.locationSub{font-size:12px;font-weight:700;color:#66838f;margin-top:3px}
-.locationLegend{font-size:11px;font-weight:800;color:#456;background:#f2f8fa;border:1px solid #dcebf0;border-radius:999px;padding:6px 10px}
-#stayMap{height:390px;border-radius:16px;overflow:hidden;border:1px solid #d3e4ea;background:#eef6f8}
-.mapList{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.mapItem{display:flex;gap:8px;align-items:flex-start;background:#f7fbfc;border:1px solid #e1eef2;border-radius:14px;padding:10px}
-.mapNo{color:#fff;font-size:11px;font-weight:900;border-radius:999px;padding:3px 8px;flex:0 0 auto}
-.mapText{min-width:0;flex:1}.mapName{display:block;font-size:12px;font-weight:900;color:#17394a;line-height:1.25}.mapAddr{display:block;font-size:11px;color:#5d7480;line-height:1.35;margin-top:3px}
-.mapOpen{display:inline-flex;margin-top:7px;text-decoration:none;color:#fff!important;background:#03c75a;border-radius:999px;padding:6px 9px;font-size:10.5px;font-weight:900}
-.mapMarker{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;color:#fff;font-size:12px;font-weight:900;border:2px solid #fff;box-shadow:0 6px 14px -6px rgba(0,0,0,.45)}
-.mapPopup b{color:#1f8fb5}.mapPopup a{display:inline-block;margin-top:6px;color:#03a14a;font-weight:800;text-decoration:none}
-@media(max-width:760px){#stayMap{height:330px}.locationPanel{padding:13px 12px;border-radius:16px}.mapList{grid-template-columns:1fr}.locationTitle{font-size:16px}.locationLegend{border-radius:12px}}
 
 /* Arang trip landing + switchable views */
 body{min-height:100vh;align-items:flex-start}
@@ -270,6 +253,7 @@ body.landing .scaler{display:none}
       <div class="rlabel totalL">총 예상 금액<span class="sub">15인 기준</span></div><div class="dcell total" style="color:#c0392b">833,110원</div><div class="dcell total" style="color:#c0392b">959,000원</div><div class="dcell total" style="color:#c0392b">986,300원</div><div class="dcell total" style="color:#c0392b">883,000원</div><div class="dcell total" style="color:#c0392b">1,090,000원</div><div class="dcell total" style="color:#c0392b">1,278,000원</div>
       <div class="rlabel">⭐ 핵심 특징</div><div class="dcell feat"><span class="fic">🏊</span><span>실내수영장<br>온수 무료</span></div><div class="dcell feat"><span class="fic">🤸</span><span>에어바운스,<br>놀이방, 복층</span></div><div class="dcell feat"><span class="fic">♨️</span><span>대형 자쿠지,<br>사우나, TV 7대</span></div><div class="dcell feat"><span class="fic">🧸</span><span>방 4개, 실내수영장,<br>어린이 식기, 장난감</span></div><div class="dcell feat"><span class="fic">♨️</span><span>화장실 4개,<br>월풀스파 무료</span></div><div class="dcell feat"><span class="fic">♨️</span><span>잔디마당,<br>개별수영장</span></div>
       <div class="rlabel">네이버 블로그 리뷰보기</div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?ssc=tab.m_blog.all&sm=mtb_jum&query=%EA%B2%BD%EC%A3%BC+%EB%AA%A8%EB%AA%A8%ED%82%A4%EC%A6%88%ED%92%80%EB%B9%8C%EB%9D%BC+c%EB%8F%99" target="_blank" rel="noopener">검색하기 ↗</a></div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?sm=mtb_hty.top&ssc=tab.m_blog.all&oquery=%EA%B2%BD%EC%A3%BC+%EB%8B%A8%EC%B2%B4+%EA%B7%B8%EB%A0%88%EC%9D%B4%ED%82%A4%EC%A6%88%ED%92%80%EB%B9%8C%EB%9D%BC&tqi=jCzDdwqXKcCssQg5z8C-009907&query=%EA%B2%BD%EC%A3%BC+%EA%B7%B8%EB%A0%88%EC%9D%B4%ED%82%A4%EC%A6%88%ED%92%80%EB%B9%8C%EB%9D%BC&ackey=bs3sk2ur" target="_blank" rel="noopener">검색하기 ↗</a></div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?ssc=tab.m_blog.all&sm=mtb_jum&query=%EA%B2%BD%EC%A3%BC+%EB%8D%B0%EB%A9%94%ED%85%8C%EB%A5%B4%ED%92%80%EB%B9%8C%EB%9D%BC" target="_blank" rel="noopener">검색하기 ↗</a></div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?ssc=tab.m_blog.all&sm=mtb_jum&query=%EA%B2%BD%EC%A3%BC+%EB%A7%88%EB%8F%99+%EC%8A%A4%ED%85%8C%EC%9D%B4+%ED%92%80%EB%B9%8C%EB%9D%BC+C%EB%8F%99" target="_blank" rel="noopener">검색하기 ↗</a></div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?ssc=tab.m_blog.all&sm=mtb_jum&query=%EA%B2%BD%EC%A3%BC+%EA%B3%A0%EB%8C%80%EC%95%88%ED%92%80%EB%B9%8C%EB%9D%BC+101%ED%98%B8" target="_blank" rel="noopener">검색하기 ↗</a></div><div class="dcell"><a class="blogBtn" href="https://m.search.naver.com/search.naver?ssc=tab.m_blog.all&sm=mtb_jum&query=%EA%B2%BD%EC%A3%BC+%EB%A7%88%EC%B9%B4%EB%A1%B1+%ED%82%A4%EC%A6%88+%EB%8F%85%EC%B1%84%ED%92%80%EB%B9%8C%EB%9D%BC" target="_blank" rel="noopener">검색하기 ↗</a></div>
+      <div class="rlabel">숙소 위치</div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EA%B4%91%EC%82%B0%EC%95%88%EA%B8%B8+76" target="_blank" rel="noopener">지도보기 ↗</a></div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EC%99%B8%EB%8F%99%EC%9D%8D+%EC%98%81%EB%B6%88%EB%A1%9C+28-145" target="_blank" rel="noopener">지도보기 ↗</a></div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EC%83%88%EA%B3%A8%EA%B8%B8+187" target="_blank" rel="noopener">지도보기 ↗</a></div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EB%A7%88%EB%8F%99+725-2" target="_blank" rel="noopener">지도보기 ↗</a></div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EA%B0%90%ED%8F%AC%EC%9D%8D+%EA%B0%90%ED%8F%AC%EB%A6%AC+643-3" target="_blank" rel="noopener">지도보기 ↗</a></div><div class="dcell"><a class="mapBtn" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EB%A7%88%EB%8F%99+692-7" target="_blank" rel="noopener">지도보기 ↗</a></div>
     </div>
 
     <div class="panels">
@@ -343,22 +327,6 @@ body.landing .scaler{display:none}
       </div>
     </div>
 
-    <section class="locationPanel" aria-label="숙소 위치 지도">
-      <div class="locationHead">
-        <div><div class="locationTitle">숙소 위치 지도</div><div class="locationSub">1안부터 6안까지 주소 기준 위치입니다.</div></div>
-        <div class="locationLegend">마커 클릭 → 주소 / 지도 링크 확인</div>
-      </div>
-      <div id="stayMap"></div>
-      <div class="mapList">
-        <div class="mapItem"><span class="mapNo" style="background:#4CAF7D">1안</span><div class="mapText"><span class="mapName">모모키즈풀빌라 C동</span><span class="mapAddr">경상북도 경주시 광산안길 76</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EA%B4%91%EC%82%B0%EC%95%88%EA%B8%B8+76" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-        <div class="mapItem"><span class="mapNo" style="background:#4F93D9">2안</span><div class="mapText"><span class="mapName">그레이키즈풀빌라</span><span class="mapAddr">경상북도 경주시 외동읍 영불로 28-145</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EC%99%B8%EB%8F%99%EC%9D%8D+%EC%98%81%EB%B6%88%EB%A1%9C+28-145" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-        <div class="mapItem"><span class="mapNo" style="background:#9370C4">3안</span><div class="mapText"><span class="mapName">데메테르풀빌라</span><span class="mapAddr">경상북도 경주시 새골길 187</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EC%83%88%EA%B3%A8%EA%B8%B8+187" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-        <div class="mapItem"><span class="mapNo" style="background:#EFA85B">4안</span><div class="mapText"><span class="mapName">마동 스테이 풀빌라 C동</span><span class="mapAddr">경북 경주시 마동 725-2</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EB%A7%88%EB%8F%99+725-2" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-        <div class="mapItem"><span class="mapNo" style="background:#3BB5A6">5안</span><div class="mapText"><span class="mapName">고대안풀빌라 101호</span><span class="mapAddr">경북 경주시 감포읍 감포리 643-3</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EA%B0%90%ED%8F%AC%EC%9D%8D+%EA%B0%90%ED%8F%AC%EB%A6%AC+643-3" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-        <div class="mapItem"><span class="mapNo" style="background:#E87FB0">6안</span><div class="mapText"><span class="mapName">마카롱 키즈 독채풀빌라</span><span class="mapAddr">경북 경주시 마동 692-7</span><a class="mapOpen" href="https://m.map.naver.com/search2/search.naver?query=%EA%B2%BD%EB%B6%81+%EA%B2%BD%EC%A3%BC%EC%8B%9C+%EB%A7%88%EB%8F%99+692-7" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div></div>
-      </div>
-    </section>
-
 
     <div class="foot">
       <div class="notes">
@@ -412,6 +380,7 @@ body.landing .scaler{display:none}
           '<div class="mitem"><b>추가요금</b><span>'+txt(rows['추가요금 합계']&&rows['추가요금 합계'][i])+'</span></div>'+
           '<div class="mitem"><b>핵심 특징</b><span>'+txt(rows['⭐ 핵심 특징']&&rows['⭐ 핵심 특징'][i])+'</span></div>'+ 
           '<div class="mitem"><b>블로그 리뷰</b><span>'+(rows['네이버 블로그 리뷰보기']&&rows['네이버 블로그 리뷰보기'][i]?rows['네이버 블로그 리뷰보기'][i].innerHTML:'')+'</span></div>'+
+          '<div class="mitem"><b>숙소 위치</b><span>'+(rows['숙소 위치']&&rows['숙소 위치'][i]?rows['숙소 위치'][i].innerHTML:'')+'</span></div>'+
         '</div><div class="mnote">'+notes[i]+'</div>';
       wrap.appendChild(card);
     });
@@ -473,35 +442,6 @@ body.landing .scaler{display:none}
   setZoom(1);
 })();
 
-
-(function(){
-  var stays=[
-    {no:'1안',name:'모모키즈풀빌라 C동',addr:'경상북도 경주시 광산안길 76',lat:35.9139,lng:129.2508,color:'#4CAF7D'},
-    {no:'2안',name:'그레이키즈풀빌라',addr:'경상북도 경주시 외동읍 영불로 28-145',lat:35.7765,lng:129.3182,color:'#4F93D9'},
-    {no:'3안',name:'데메테르풀빌라',addr:'경상북도 경주시 새골길 187',lat:35.7908,lng:129.3278,color:'#9370C4'},
-    {no:'4안',name:'마동 스테이 풀빌라 C동',addr:'경북 경주시 마동 725-2',lat:35.7717,lng:129.2862,color:'#EFA85B'},
-    {no:'5안',name:'고대안풀빌라 101호',addr:'경북 경주시 감포읍 감포리 643-3',lat:35.8138,lng:129.4965,color:'#3BB5A6'},
-    {no:'6안',name:'마카롱 키즈 독채풀빌라',addr:'경북 경주시 마동 692-7',lat:35.7707,lng:129.2913,color:'#E87FB0'}
-  ];
-  function naverMapUrl(addr){return 'https://m.map.naver.com/search2/search.naver?query='+encodeURIComponent(addr);}
-  function initStayMap(){
-    var el=document.getElementById('stayMap');
-    if(!el || !window.L || el.dataset.ready) return;
-    el.dataset.ready='1';
-    var map=L.map(el,{scrollWheelZoom:false}).setView([35.82,129.36],10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(map);
-    var bounds=[];
-    stays.forEach(function(s){
-      var icon=L.divIcon({className:'',html:'<div class="mapMarker" style="background:'+s.color+'">'+s.no.replace('안','')+'</div>',iconSize:[28,28],iconAnchor:[14,14],popupAnchor:[0,-16]});
-      L.marker([s.lat,s.lng],{icon:icon}).addTo(map).bindPopup('<div class="mapPopup"><b>'+s.no+' '+s.name+'</b><br>'+s.addr+'<br><a href="'+naverMapUrl(s.addr)+'" target="_blank" rel="noopener">네이버 지도 열기 ↗</a></div>');
-      bounds.push([s.lat,s.lng]);
-    });
-    map.fitBounds(bounds,{padding:[28,28]});
-    setTimeout(function(){map.invalidateSize();},250);
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initStayMap); else initStayMap();
-  document.addEventListener('click',function(e){if(e.target.closest('.compareBtn')||e.target.closest('.cardsBtn')) setTimeout(initStayMap,350);});
-})();
 
 </script>
 
